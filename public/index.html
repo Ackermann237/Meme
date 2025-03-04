@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Memes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="../public/télécharger.jpg" alt="Logo SUPINFO" class="logo">
+    <h1>Générateur de Memes pour le concours d'admission  AMOUGOU</h1>
+    <h2>Allez mon pote c'est parti !!!!!!!</h2>
+    
+    <input type="file" id="image-upload" accept="image/*">
+    <input type="text" id="meme-text" placeholder="Ajoutez du texte ici">
+    <button onclick="addText()">Ajouter du texte</button>
+    <button onclick="downloadMeme()">Télécharger le meme</button>
+    <button onclick="shareOnFacebook()">Partager sur Facebook</button>
+<button onclick="shareOnTwitter()">Partager sur Twitter</button>
+<button onclick="shareOnWhatsApp()">Partager sur WhatsApp</button>
+<button onclick="shareOnTelegram()">Partager sur Telegram</button>
+<button onclick="copyLink()">Copier le lien</button>
+    <canvas id="meme-canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
