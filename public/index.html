@@ -4,23 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Générateur de Memes</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <img src="../public/télécharger.jpg" alt="Logo SUPINFO" class="logo">
-    <h1>Générateur de Memes pour le concours d'admission  AMOUGOU</h1>
-    <h2>Allez mon pote c'est parti !!!!!!!</h2>
-    
-    <input type="file" id="image-upload" accept="image/*">
-    <input type="text" id="meme-text" placeholder="Ajoutez du texte ici">
-    <button onclick="addText()">Ajouter du texte</button>
-    <button onclick="downloadMeme()">Télécharger le meme</button>
-    <button onclick="shareOnFacebook()">Partager sur Facebook</button>
-<button onclick="shareOnTwitter()">Partager sur Twitter</button>
-<button onclick="shareOnWhatsApp()">Partager sur WhatsApp</button>
-<button onclick="shareOnTelegram()">Partager sur Telegram</button>
-<button onclick="copyLink()">Copier le lien</button>
-    <canvas id="meme-canvas"></canvas>
+
+    <header class="bg-dark p-3 d-flex justify-content-between align-items-center">
+        <img src="../public/télécharger.jpg" alt="Logo SUPINFO" class="logo">
+        <a href="#" class="text-white h4">Accueil</a>
+        <a href="#gallery" class="text-white h4">Galerie</a>
+       
+    </header>
+    <div class="container text-center mt-4">
+        <h1>Générateur de Memes pour le concours d'admission AMOUGOU</h1>
+        <h2>Allez mon pote c'est parti !!!!!!!</h2>
+
+        <input type="file" id="image-upload" accept="image/*" class="form-control my-3">
+        <input type="text" id="meme-text" placeholder="Ajoutez du texte ici" class="form-control my-3">
+        <button onclick="addText()" class="btn btn-success">Ajouter du texte</button>
+        <button onclick="downloadMeme()" class="btn btn-primary">Télécharger le meme</button>
+
+        <div class="social-buttons my-3">
+            <button onclick="shareOnFacebook()" class="btn btn-primary"><i class="bi bi-facebook"></i></button>
+            <button onclick="shareOnTwitter()" class="btn btn-info"><i class="bi bi-twitter"></i></button>
+            <button onclick="shareOnWhatsApp()" class="btn btn-success"><i class="bi bi-whatsapp"></i></button>
+            <button onclick="shareOnTelegram()" class="btn btn-primary"><i class="bi bi-telegram"></i></button>
+        </div>
+
+        <canvas id="meme-canvas" class="border mt-3"></canvas>
+
+        <h2 class="mt-5">Galerie</h2>
+        <div id="gallery" class="d-flex flex-wrap justify-content-center"></div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Générateur de Memes - Développé par AMOUGOU André Désiré J.</p>
+</footer>
+
 </html>

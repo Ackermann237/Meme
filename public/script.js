@@ -1,6 +1,7 @@
 const imageUpload = document.getElementById("image-upload");
 const canvas = document.getElementById("meme-canvas");
 const ctx = canvas.getContext("2d");
+const gallery = document.getElementById("gallery");
 
 imageUpload.addEventListener("change", function (event) {
     const file = event.target.files[0];
@@ -34,42 +35,40 @@ function downloadMeme() {
     link.href = canvas.toDataURL();
     link.download = "meme.png";
     link.click();
-}
-async function uploadToImgur(imageData) {
-    let clientId = "TON_CLIENT_ID"; // Remplace par ton Client ID Imgur
-    let formData = new FormData();
-    formData.append("image", imageData.split(",")[1]); // Enlever "data:image/png;base64,"
-
-    let response = await fetch("https://api.imgur.com/3/image", {
-        method: "POST",
-        headers: {
-            Authorization: "Client-ID " + clientId,
-        },
-        body: formData
-    });
-
-    let data = await response.json();
-    return data.data.link; // URL de l’image sur Imgur
+    saveToGallery();
 }
 
-async function shareOnFacebook() {
-    let imageUrl = await uploadToImgur(canvas.toDataURL());
-    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(imageUrl), "_blank");
+function saveToGallery() {
+    const memeImage = new Image();
+    memeImage.src = canvas.toDataURL();
+    memeImage.width = 200; // Ajustez la taille de l'image dans la galerie
+    memeImage.height = 200;
+
+    const memeContainer = document.createElement("div");
+    memeContainer.className = "meme-item";
+    memeContainer.appendChild(memeImage);
+
+    gallery.appendChild(memeContainer);
 }
 
-async function shareOnTwitter() {
-    let imageUrl = await uploadToImgur(canvas.toDataURL());
+function shareOnFacebook() {
+    let url = canvas.toDataURL();
+    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank");
+}
+
+function shareOnTwitter() {
+    let url = canvas.toDataURL();
     let text = "Regarde mon meme !";
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(imageUrl)}`, "_blank");
+    window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url), "_blank");
 }
 
-async function shareOnWhatsApp() {
-    let imageUrl = await uploadToImgur(canvas.toDataURL());
-    let message = "Regarde ce meme : " + imageUrl;
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, "_blank");
+function shareOnWhatsApp() {
+    let url = canvas.toDataURL();
+    let message = "Regarde ce meme : " + url;
+    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(message), "_blank");
 }
 
-async function shareOnTelegram() {
-    let imageUrl = await uploadToImgur(canvas.toDataURL());
-    window.open(`https://t.me/share/url?url=${encodeURIComponent(imageUrl)}`, "_blank");
+function shareOnTelegram() {
+    let url = canvas.toDataURL();
+    window.open("https://t.me/share/url?url=" + encodeURIComponent(url), "_blank");
 }
