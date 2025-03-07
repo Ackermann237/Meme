@@ -1,0 +1,113 @@
+body {
+    background: linear-gradient(135deg, #6a11cb, #010130);
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+header, footer {
+    width: 100%;
+    margin: 0;
+    padding: 0px 0;
+}
+
+header nav, footer p {
+    width: 100%;
+    padding: 0 0px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+input[type="file"], input[type="text"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ff6f61;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ff3b2f;
+}
+
+canvas {
+    border: 2px solid #fff;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* Icônes des réseaux sociaux */
+.social-buttons {
+    margin-top: 20px;
+}
+
+.social-buttons button {
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+/* Galerie */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.meme-item {
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
